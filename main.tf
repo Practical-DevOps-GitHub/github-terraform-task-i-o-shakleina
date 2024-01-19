@@ -9,3 +9,4 @@ resource "github_repository" "ex_r" {
     username = "softservedata"
     permission = "push"
   }
+}
