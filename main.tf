@@ -54,11 +54,6 @@ resource "github_branch_protection" "develop_branch_protection" {
   }
 }
 
-resource "github_codeowners" "codeowners" {
-  repository = github_repository.ex_r.name
-  owners     = ["softservedata"]
-}
-
 resource "github_actions_secret" "pat_secret" {
   repository = github_repository.ex_r.name
   secret_name = "PAT"
