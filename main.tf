@@ -1,11 +1,5 @@
-provider "github" {
-  token =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
-}
-
 resource "github_repository" "ex_r" {
   name             = "github-terraform-task-io-shakleina"
-  description      = "tefrraform"
-  auto_init        = true
   default_branch   = "develop"
   allow_rebase_merge = false
   allow_squash_merge = false
@@ -59,8 +53,3 @@ resource "github_actions_secret" "pat_secret" {
   secret_name = "PAT"
   plaintext_value = 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
 }
-
-resource "github_actions_workflow" "notification_workflow" {
-  name     = "Notify on Pull Request Creation"
-  repository = github_repository.ex_r.name
-  on       = "pull_request"
