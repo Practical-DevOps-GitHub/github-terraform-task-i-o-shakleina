@@ -64,18 +64,3 @@ resource "github_actions_workflow" "notification_workflow" {
   name     = "Notify on Pull Request Creation"
   repository = github_repository.ex_r.name
   on       = "pull_request"
-  
-  resolves = ["notify_discord"]
-
-  trigger {
-    event = "pull_request"
-  }
-
-  action {
-    name   = "notify_discord"
-    uses   = "softservedata/discord-notification-action@v1"
-    secrets = {
-      DISCORD_WEBHOOK_URL = https://discordapp.com/api/webhooks/1192581811600117940/6Fa9uaICP6PaW28N08vdQeVrd6Bd0SW1ySBGgetfK-hEPAjoIJPRfwbXPz-ASTiIW_8-
-    }
-  }
-}
